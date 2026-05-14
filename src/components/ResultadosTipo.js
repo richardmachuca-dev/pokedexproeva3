@@ -20,7 +20,7 @@ export default function ResultadosTipo({ types, onSelectPokemon }) {
             const id = urlParts[urlParts.length - 2];
             typeSet.set(id, p.pokemon.name);
           });
-          
+
           if (!intersection) {
             intersection = typeSet;
           } else {
@@ -45,7 +45,6 @@ export default function ResultadosTipo({ types, onSelectPokemon }) {
 
   if (!types || types.length === 0) return null;
 
-  const displayTypes = types.join(' + ');
   const mainType = types[0];
 
   return (
@@ -77,9 +76,9 @@ export default function ResultadosTipo({ types, onSelectPokemon }) {
           <div className="pokeball-loader"></div>
         </div>
       ) : (
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', 
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))',
           gap: '1.5rem',
           maxHeight: '600px',
           overflowY: 'auto',
@@ -88,7 +87,7 @@ export default function ResultadosTipo({ types, onSelectPokemon }) {
           borderRadius: '16px'
         }}>
           {pokemons.map(p => (
-            <div 
+            <div
               key={p.id}
               onClick={() => onSelectPokemon(p.name)}
               className="animate-fade"
@@ -114,8 +113,8 @@ export default function ResultadosTipo({ types, onSelectPokemon }) {
                 e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)';
               }}
             >
-              <img 
-                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${p.id}.png`} 
+              <img
+                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${p.id}.png`}
                 alt={p.name}
                 style={{ width: '80px', height: '80px', objectFit: 'contain' }}
               />
